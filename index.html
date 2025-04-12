@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserBotHost платный хостинг юзер бота.</title>
+  <link rel="stylesheet" href="styles/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Стили для всплывающего окна */
+    .modal {
+      display: none; /* Скрыто по умолчанию */
+      position: fixed; /* Фиксированное положение на экране */
+      z-index: 1; /* Поверх всего */
+      left: 0;
+      top: 0;
+      width: 100%; /* Полная ширина */
+      height: 100%; /* Полная высота */
+      overflow: auto; /* Прокрутка, если контент не помещается */
+      background-color: rgba(0,0,0,0.4); /* Полупрозрачный фон */
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* Центрирование по вертикали и горизонтали */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Ширина окна */
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #copy-button {
+      background-color: #4CAF50; /* Зеленый цвет кнопки */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    #copy-button:hover {
+      background-color: #367c39;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+        <img id="logo2" src="logo2.png" alt="speed Logo">
+        <img id="logo1" src="logo1.png" alt="text Logo">
+    </div>
+    <div id="msk-time" class="msk-time"></div>
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="#" class="nav-icon" data-target="home-section">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-icon" data-target="profile-section">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-text">Bot Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-icon" data-target="contact-section">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="home-logo-container">
+        <img id="logo3" src="logo3.png" alt="text Logo">
+        <img id="logo4" src="logo4.png" alt="speed Logo">
+    </div>
+    <section id="home-section" class="content-section1">
+      <div class="home-info">
+      <h1>Welcome the Host!</h1>
+      <p>Покупай лучший хостинг юзер бота!</p>
+      <p>
+        <img src="moon.svg" alt="Moon Icon" class="svg-icon"> Hikka /
+        <img src="saturn.svg" alt="Saturn Icon" class="svg-icon"> Heroku
+      </p>
+      <button id="login-button">Войти</button>
+      </div>
+    </section>
+
+    <section id="profile-section" class="content-section2" style="display: none;">
+      <h2 id="UserCreate"><img src="user_icon.png" alt="User Icon"></h2>
+      <div class="input-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter name">
+      </div>
+      <div class="input-group">
+        <label for="id">ID:</label>
+        <input type="number" id="id" placeholder="Enter id">
+      </div>
+      <div class="input-group">
+        <label for="number-bots">Number of bots (max 100):</label>
+        <input type="number" id="number-bots" placeholder="Enter number" min="1" max="100">
+      </div>
+      <div class="input-group">
+        <label for="subscription-mode">Subscription mode:</label>
+        <select id="subscription-mode">
+          <option value="0">Enter months</option>
+          <option value="1">1 month</option>
+          <option value="2">3 months</option>
+          <option value="3">6 months</option>
+          <option value="4">9 months</option>
+          <option value="5">12 months</option>
+          <option value="6">15 months</option>
+          <option value="7">18 months</option>
+          <option value="8">24 months</option>
+        </select>
+      </div>
+      <div class="input-group" id="custom-months-user" style="display:none;">
+        <label for="months-user">Number of months:</label>
+        <input type="number" id="months-user" placeholder="Enter months" min="1">
+      </div>
+      <div class="input-group">
+        <label for="currency">Choose currency:</label>
+        <select id="currency">
+          <option value="1">🌟 Stars</option>
+          <option value="2">₽ Rubles</option>
+          <option value="3">₴ Hryvnias</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="price">Price:</label>
+        <input type="text" id="price-user" value="0.00" readonly>
+      </div>
+      <div class="button-group">
+        <button id="start-button">Start</button>
+        <button id="restart-button">Restart</button>
+        <button id="config-button">Config</button>
+      </div>
+
+      <h2 id="Config"><img src="config_icon.png" alt="Config Icon"></h2>
+      <div class="input-group">
+        <label for="config-subscription-days">Subscription mode:</label>
+        <select id="config-subscription-days">
+          <option value="0">Enter months</option>
+          <option value="1">1 month</option>
+          <option value="2">3 months</option>
+          <option value="3">6 months</option>
+          <option value="4">9 months</option>
+          <option value="5">12 months</option>
+          <option value="6">15 months</option>
+          <option value="7">18 months</option>
+          <option value="8">24 months</option>
+        </select>
+      </div>
+      <div class="input-group" id="config-custom-months" style="display:none;">
+        <label for="config-months">Number of months:</label>
+        <input type="number" id="config-months" placeholder="Enter months" min="1">
+      </div>
+      <div class="input-group">
+        <label for="config-currency">Choose currency:</label>
+        <select id="config-currency">
+          <option value="1">🌟 Stars</option>
+          <option value="2">₽ Rubles</option>
+          <option value="3">₴ Hryvnias</option>
+        </select>
+      </div>
+    </section>
+    
+    <section id="contact-section" class="content-section3" style="display: none;">
+      <h1>Контактные данные:</h1>
+      <p>Покупать юзер-бота тут: <a href="https://t.me/am_chelovek" target="_blank">Владелец @am_chelovek</a></p>
+      <p>Телеграм канал: <a href="https://t.me/UserBotHost" target="_blank">Новости UserBotHost</a></p>
+    </section>
+
+    <div id="info-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="modal-info"></p>
+        <button id="copy-button">Copy</button>
+      </div>
+    </div>
+    </main>
+
+  <div class="developer-card">
+    <img src="developer_photo.png" alt="Фото разработчика" class="developer-photo">
+    <p class="developer-link"><a href="https://t.me/familiarrrrrr" target="_blank">Ссылка на разработчика</a></p>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
