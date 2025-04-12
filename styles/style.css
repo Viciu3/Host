@@ -1,0 +1,422 @@
+/* Общие стили для body и header остаются без изменений */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+  background-image: url('https://x0.at/wO7q.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  color: white;
+  padding: 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  background: linear-gradient(-30deg, rgba(244, 67, 54, 0.5), rgba(30, 144, 255, 0.5));
+  background-size: 200% 200%;
+  animation: colorTransition 3s ease infinite;
+}
+
+@keyframes colorTransition {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Стили для логотипов в header остаются без изменений */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#logo1 {
+  height: 100%;
+  width: auto;
+  max-height: none;
+  max-width: auto;
+  position: relative;
+  top: -30px;
+  margin-left: -50px;
+}
+
+#logo2 {
+  width: 100px;
+  height: auto;
+  max-height: none;
+  max-width: auto;
+  position: relative;
+  top: 15px;
+  margin-left: 5px;
+}
+
+/* Стили для навигации остаются без изменений */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.main-nav {
+    position: absolute;
+    top: 80px;
+    right: 5px;
+}
+
+.nav-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-icon i {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.nav-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.nav-icon:hover {
+    transform: scale(1.05);
+}
+
+.nav-icon:hover::before {
+    opacity: 1;
+    background: linear-gradient(-30deg, rgba(244, 67, 54, 0.3), rgba(30, 144, 255, 0.3));
+}
+
+.nav-text {
+    font-size: 0.6em;
+}
+
+main {
+  display: flex;
+  flex-direction: column; /* Размещаем элементы вертикально */
+  min-height: 100vh; /* Занимаем всю высоту экрана */
+  padding: 20px;
+  box-sizing: border-box; /* Учитываем padding и border в min-height */
+}
+
+/* Стили для секции Home */
+.content-section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: none; /* Пример фона для Home */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+  margin-bottom: auto; /* Отталкиваем Home-секцию вниз */
+}
+
+.home-logo-container {
+  width: auto;
+  margin-bottom: 20px;
+  background: none; /* Делаем фон прозрачным */
+  display: flex;
+  justify-content: space-around; /* Распределяем пространство между логотипами */
+  align-items: center; /* Выравниваем по вертикали */-
+  position: relative; /* Это важно для позиционирования внутри */
+}
+
+.home-logo-container #logo3 {
+  max-width: 350px; /* Размер логотипа 3 */
+  height: auto;
+  position: absolute; /* Позволяет двигать с помощью top, left */
+  top: -15px; /* Настрой свою высоту в пикселях */
+  left: 150px; /* Настрой свое положение слева в пикселях */
+}
+
+.home-logo-container #logo4 {
+  width: 250px; /* Размер логотипа 4 */
+  height: auto;
+  position: absolute; /* Позволяет двигать с помощью top, right */
+  top: 80px; /* Настрой свою высоту в пикселях */
+  right: 270px; /* Настрой свое положение справа в пикселях */
+}
+
+
+.content-section1 .home-info {
+  margin-top: 10px; /* Отступ сверху */
+  background: none; /* Делаем фон прозрачным */
+}
+
+.content-section1 .home-info h1 {
+  color: #2e8b57; /* Пример цвета заголовка Home */
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.content-section1 .home-info p {
+  background-color: none; /* Пример фона для Home */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);    
+  font-size: 1.3em;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.content-section1 #login-button {
+  background-color: #007bff; /* Пример цвета кнопки Home */
+  color: white;
+  padding: 18px 35px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.content-section1 #login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для секции Profile */
+.content-section2 {
+  background-color: #e6f7ff; /* Пример фона для Profile */
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  margin-bottom: 25px;
+}
+
+.content-section2 #UserCreate {
+  color: #008CBA; /* Пример цвета заголовка Profile */
+  border-bottom: 2px solid #008CBA;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.content-section2 #Config {
+  color: #ff6347; /* Пример цвета заголовка Profile */
+  border-bottom: 2px solid #ff6347;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+/* Стили для секции Contact */
+.content-section3 {
+  background-color: none; /* Пример фона для Contact */
+  padding: 45px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  margin-bottom: 25px;
+}
+
+.content-section3 h1 {
+  background-color: none; /* Пример фона для Home */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+  color: #8fbc8f; /* Пример цвета заголовка Contact */
+  font-size: 2.0em;
+  margin-bottom: 5px;
+}
+
+.content-section3 p {
+  background-color: none; /* Пример фона для Home */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+  color: white; /* Пример цвета текста Contact */
+  font-size: 1.0em;
+  margin-bottom: 15px;
+}
+
+.content-section3 a {
+  color: #8fbc8f; /* Здесь укажи желаемый цвет ссылки, например, yellow */
+  text-decoration: none; /* Убирает подчеркивание по умолчанию */
+}
+
+.content-section3 a:hover {
+  text-decoration: underline; /* Добавляет подчеркивание при наведении */
+}
+
+/* Общие стили для input-group и button остаются */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background-color: #008CBA;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005f7a;
+}
+
+/* Стиль для времени */
+.msk-time {
+    background: linear-gradient(-30deg, rgba(244, 67, 54, 0.3), rgba(30, 144, 255, 0.3));
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: white;
+    font-size: 1.1em;
+    margin-top: -70px;
+    margin-right: 5px;
+}
+
+/* Показываем логотипы только на домашней странице */
+#home-section.content-section1 .home-logo-container {
+  display: flex;
+  justify-content: center; /* Центрируем логотипы */
+  align-items: center; /* Выравниваем по вертикали */
+}
+
+.content-section1 .home-info p .svg-icon {
+  width: 30px; /* Настрой ширину иконки moon.svg */
+  height: auto;
+  vertical-align: middle; /* Выравниваем иконку по середине текста */
+  margin-right: 5px; /* Добавляем немного отступа справа */
+}
+
+.content-section1 .home-info p .svg-icon:last-child {
+  width: 40px; /* Настрой ширину иконки saturn.svg */
+  height: auto;
+  vertical-align: middle;
+  margin-left: 5px; /* Добавляем немного отступа слева */
+}
+
+#home-section {
+  position: relative;
+  top: 350px; /* Ещё немного опускаем блок Welcome */
+  /* Другие стили для #home-section */
+}
+
+#home-section {
+  position: relative;
+  top: 300px; /* Increased the value to move it down more */
+  /* Other styles for #home-section */
+}
+
+#UserCreate img {
+  width: 50px; /* Задай начальную ширину */
+  height: auto; /* Чтобы высота подстраивалась */
+  position: relative; /* Разрешаем двигать картинки */
+  top: 50px;    /* Сдвиг вверх/вниз. Больше значение - ниже */
+  left: 0px;   /* Сдвиг влево/вправо. Больше значение - правее */
+}
+
+#Config img {
+  width: 50px; /* Задай начальную ширину */
+  height: auto; /* Чтобы высота подстраивалась */
+  position: relative; /* Разрешаем двигать картинки */
+  top: 50px;    /* Сдвиг вверх/вниз. Больше значение - ниже */
+  left: 0px;   /* Сдвиг влево/вправо. Больше значение - правее */
+}
+
+/* Пример, как можно сделать одну иконку больше и сдвинуть */
+#UserCreate img {
+  width: 300px;
+  left: 0px;
+}
+
+#Config img {
+  width: 300px;
+  left: -66px; /* Можно использовать right вместо left */
+  top: 30px;
+}
+
+/* Стиль для карточки разработчика */
+.developer-card {
+  background-color: none; /* Пример фона */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center; /* Выравнивание содержимого по центру */
+  position: absolute; /* Или position: fixed; */
+  top: 800px; /* Настрой желаемое расстояние от верхнего края */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Корректируем центрирование */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px; /* Ограничение максимальной ширины карточки */
+}
+
+/* Остальные стили для .developer-photo и .developer-link остаются без изменений */
+.developer-photo {
+  width: 100px; /* Задай желаемый размер */
+  height: 100px;
+  border-radius: 50%; /* Делает фотографию круглой */
+  object-fit: cover; /* Обрезает фото по форме круга без искажений */
+  margin-bottom: 15px; /* Отступ между фото и ссылкой */
+}
+
+/* Стиль для ссылки на разработчика */
+.developer-link a {
+  color: #8fbc8f; /* Цвет ссылки */
+  text-decoration: none; /* Убирает подчеркивание */
+  font-size: 1.2em;
+}
+
+.developer-link a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
